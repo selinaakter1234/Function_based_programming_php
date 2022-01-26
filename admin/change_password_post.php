@@ -29,7 +29,7 @@ if ( $pass_cap == 1 && $pass_small == 1 && $pass_num == 1  && $pass_char == 1) {
     $encrypted_old_password = md5($_POST['old_pass']);
 
     $checking_query = "SELECT COUNT(*) AS total_user FROM users WHERE email='$login_email' AND password='$encrypted_old_password' ";
-    $db_result = mysqli_query($db_connect, $checking_query);
+    $db_result = mysqli_query(db_connect(), $checking_query);
     $after_assoc = mysqli_fetch_assoc($db_result);
 
     $new_pass= $_POST['new_pass'];
@@ -38,7 +38,7 @@ if ( $pass_cap == 1 && $pass_small == 1 && $pass_num == 1  && $pass_char == 1) {
 
     if($after_assoc['total_user'] == 1){
           $update_query = " UPDATE users SET password = '$encrypted_new_password' WHERE email='$login_email' ";
-             mysqli_query($db_connect,$update_query);
+             mysqli_query(db_connect(),$update_query);
              $_SESSION['pass_change_ok']="password change successfull";
             header('location: change_password.php');
 

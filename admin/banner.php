@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_status'])) {
 }
 
 $get_query = "SELECT * FROM banners";
-$from_db = mysqli_query($db_connect, $get_query);
+$from_db = mysqli_query(db_connect(), $get_query);
 
 ?>
 

@@ -21,7 +21,7 @@ if($_FILES['banner_image']){
            //delete query
          $get_image_location_query = " SELECT image_location FROM banners where id = $id";
 
-         $image_location_from_db = mysqli_query($db_connect, $get_image_location_query);
+         $image_location_from_db = mysqli_query(db_connect(), $get_image_location_query);
          $after_assoc_image_location =mysqli_fetch_assoc( $image_location_from_db);
          
 
@@ -29,7 +29,7 @@ if($_FILES['banner_image']){
 
 
 
-        // $id_from_db =mysqli_insert_id($db_connect);
+        // $id_from_db =mysqli_insert_id(db_connect());
        
          $image_new_name =  $id . "." .$image_extention;
        $save_location ="../uploads/banner/".$image_new_name ;
@@ -40,7 +40,7 @@ if($_FILES['banner_image']){
        $image_location = "uploads/banner/".$image_new_name;
        $update_image_query = "UPDATE banners SET image_location='$image_location' WHERE id=$id";
        
-       mysqli_query($db_connect,$update_image_query);
+       mysqli_query(db_connect(),$update_image_query);
        header('location: banner.php');
        
        

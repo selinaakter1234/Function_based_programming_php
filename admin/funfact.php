@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_status'])) {
     header('location: ../login.php');
 }
 $get_query = "SELECT * FROM funfacts";
-$from_db = mysqli_query($db_connect, $get_query);
+$from_db = mysqli_query(db_connect(), $get_query);
 //$after_Assoc = mysqli_fetch_assoc($from_db);
 
 ?>

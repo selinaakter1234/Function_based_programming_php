@@ -7,6 +7,6 @@ require_once '../db.php';
 
 //  inser query 
 $insert_query = "INSERT INTO service_heads (black_head,green_head,service_sub_head) VALUES('$black_head','$green_head','$service_sub_head')";
-mysqli_query($db_connect,$insert_query);
+mysqli_query(db_connect(),$insert_query);
 header('location: service_head.php');
 ?>

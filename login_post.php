@@ -1,13 +1,7 @@
 <?php
 session_start();
 //db info
-$db_host_name = 'localhost';
-$db_user_name = "root";
-$db_password = "";
-$db_name = "practical_two";
-
-//db connection
-$db_connect = mysqli_connect($db_host_name, $db_user_name, $db_password, $db_name);
+require_once('db.php');
 
 //information from form
 
@@ -17,7 +11,7 @@ $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 
 
 $checking_query = "SELECT COUNT(*) AS total_users FROM users WHERE email='$email' AND password='$password' ";
-$from_result = mysqli_query($db_connect, $checking_query);
+$from_result = mysqli_query(db_connect(), $checking_query);
 $after_assoc = mysqli_fetch_assoc($from_result);
 print_r($after_assoc);
 if ($after_assoc['total_users'] == 1) {

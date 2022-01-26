@@ -1,13 +1,7 @@
 <?php
 session_start();
 //db info
-$db_host_name = 'localhost';
-$db_user_name = "root";
-$db_password = "";
-$db_name = "practical_two";
-
-//db connection
-$db_connect = mysqli_connect($db_host_name, $db_user_name, $db_password, $db_name);
+require_once('db.php');
 
 //information from form
 $user_name = filter_var($_POST['user_name'], FILTER_SANITIZE_STRING);
@@ -53,7 +47,7 @@ if (strlen($password) > 5 && $pass_cap == 1 && $pass_small == 1 && $pass_num == 
         
         //insert query
          $insert_query = "INSERT INTO users (user_name, email,phone, password) VALUES ('$user_name','$email','$phone','$encrypted_password')";
-         mysqli_query($db_connect, $insert_query);
+         mysqli_query(db_connect(), $insert_query);
         $_SESSION['success_msg']="registration successful";
         header('location: register.php');
     }

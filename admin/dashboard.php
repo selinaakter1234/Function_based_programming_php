@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_status'])) {
 }
 
 $get_query = "SELECT id,user_name,email,phone FROM users";
-$from_db = mysqli_query($db_connect, $get_query);
+$from_db = mysqli_query(db_connect(), $get_query);
 // $after_assoc = mysqli_fetch_assoc($from_db);
 // print_r($after_assoc);
 ?>

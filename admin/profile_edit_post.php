@@ -19,7 +19,7 @@ $email= $_SESSION['email'];
     
 
     $update_query = " UPDATE users SET user_name='$user_name' , phone='$phone' WHERE email='$email' ";
-    mysqli_query($db_connect,$update_query);
+    mysqli_query(db_connect(),$update_query);
      header('location: profile.php');
    
 }

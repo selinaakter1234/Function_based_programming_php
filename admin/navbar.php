@@ -21,7 +21,7 @@
               <?php
               require_once '../db.php';
               $get_message_notification_query = " SELECT COUNT(*) AS message_notification FROM guest_messages WHERE read_status=1";
-              $from_db = mysqli_query($db_connect,$get_message_notification_query);
+              $from_db = mysqli_query(db_connect(),$get_message_notification_query);
               $after_Assoc = mysqli_fetch_assoc($from_db);
               ?>
               

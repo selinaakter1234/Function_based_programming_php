@@ -5,7 +5,7 @@ require_once('../db.php');
 require_once('navbar.php');
 $login_email = $_SESSION['email'];
 $get_query = "SELECT user_name,phone,email FROM users WHERE email= '$login_email'";
-$db_result = mysqli_query($db_connect, $get_query);
+$db_result = mysqli_query(db_connect(), $get_query);
 $after_assoc = mysqli_fetch_assoc($db_result);
 
 

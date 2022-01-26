@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_status'])) {
 }
 $id= $_GET['banner_id'];
 $get_query = "SELECT * FROM banners WHERE id=$id";
-$banner_from_db = mysqli_query($db_connect, $get_query);
+$banner_from_db = mysqli_query(db_connect(), $get_query);
 $after_assoc = mysqli_fetch_assoc($banner_from_db);
 
 ?>

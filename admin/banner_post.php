@@ -15,8 +15,8 @@ $upload_image_original_size = $_FILES['banner_image']['size'];
 if(in_array($image_extention,$allow_extention)){
   $insert_query ="INSERT INTO banners (banner_sub_title,banner_title,banner_detail,image_location)
   VALUES ('$banner_sub_title','$banner_title','$banner_detail','primary location' )";
-  mysqli_query($db_connect,$insert_query);
-  $id_from_db =mysqli_insert_id($db_connect);
+  mysqli_query(db_connect(),$insert_query);
+  $id_from_db =mysqli_insert_id(db_connect());
 
   $image_new_name =  $id_from_db . "." . $image_extention;
 $save_location ="../uploads/banner/".$image_new_name ;
@@ -26,7 +26,7 @@ move_uploaded_file($_FILES['banner_image']['tmp_name'],$save_location);
 $image_location = "uploads/banner/".$image_new_name;
 $update_query = "UPDATE banners SET image_location='$image_location' WHERE id=$id_from_db";
 
-mysqli_query($db_connect,$update_query);
+mysqli_query(db_connect(),$update_query);
 //success msg add
 $_SESSION['success_msg']='Banner insert succesful';
 header('location: banner.php');

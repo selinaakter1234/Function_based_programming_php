@@ -7,6 +7,6 @@ require_once '../db.php';
 
 //  inser query 
 $insert_query = "INSERT INTO funfact_items (fun_num,fun_item_head) VALUES('$fun_num','$fun_item_head')";
-mysqli_query($db_connect,$insert_query);
+mysqli_query(db_connect(),$insert_query);
 header('location: funfact_item.php');
 ?>

@@ -103,7 +103,7 @@ https://templatemo.com/tm-545-finance-business
       <?php
       require_once 'db.php';
       $get_query = "SELECT * FROM banners WHERE active_status=1";
-      $banner_from_db = mysqli_query($db_connect, $get_query);
+      $banner_from_db = mysqli_query(db_connect(), $get_query);
       foreach ($banner_from_db  as $banners) :
       ?>
         <!-- Item -->
@@ -172,7 +172,7 @@ https://templatemo.com/tm-545-finance-business
 
           <?php
           $get_query = "SELECT * FROM service_heads WHERE active_status=1 limit 1";
-          $from_db = mysqli_query($db_connect, $get_query);
+          $from_db = mysqli_query(db_connect(), $get_query);
           // $after_Assoc = mysqli_fetch_assoc($from_db);
           ?>
           <div class="section-heading">
@@ -190,7 +190,7 @@ https://templatemo.com/tm-545-finance-business
         <!-- service head   -->
         <?php
         $get_query = "SELECT * FROM service_items WHERE active_status = 1 ORDER BY id DESC limit 3";
-        $from_db = mysqli_query($db_connect, $get_query);
+        $from_db = mysqli_query(db_connect(), $get_query);
         foreach ($from_db as $service_items) :
         ?>
           <div class="col-md-4">
@@ -243,7 +243,7 @@ https://templatemo.com/tm-545-finance-business
           <div class="left-content">
             <?php
             $get_query = "SELECT * FROM funfacts WHERE active_status=1 limit 1";
-            $from_db = mysqli_query($db_connect, $get_query);
+            $from_db = mysqli_query(db_connect(), $get_query);
 
             foreach ($from_db as $funfact_head) :
             ?>
@@ -263,7 +263,7 @@ https://templatemo.com/tm-545-finance-business
 
             <?php
             $get_query = "SELECT * FROM funfact_items WHERE active_status=1 limit 4";
-            $from_db = mysqli_query($db_connect, $get_query);
+            $from_db = mysqli_query(db_connect(), $get_query);
 
             foreach ($from_db as $funfact_item) :
 
