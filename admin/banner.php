@@ -9,8 +9,8 @@ if (!isset($_SESSION['user_status'])) {
     header('location: ../login.php');
 }
 
-$get_query = "SELECT * FROM banners";
-$from_db = mysqli_query(db_connect(), $get_query);
+// $get_query = "SELECT * FROM banners";
+// $from_db = mysqli_query(db_connect(), $get_query);
 
 ?>
 
@@ -69,7 +69,7 @@ $from_db = mysqli_query(db_connect(), $get_query);
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($from_db as $key => $banner) :
+                                foreach (get_all('banners') as $key => $banner) :
                                 ?>
 
                                     <tr>

@@ -9,8 +9,8 @@ if (!isset($_SESSION['user_status'])) {
     header('location: ../login.php');
 }
 
-$get_query = "SELECT id,user_name,email,phone FROM users";
-$from_db = mysqli_query(db_connect(), $get_query);
+// $get_query = "SELECT id,user_name,email,phone FROM users";
+// $from_db = mysqli_query(db_connect(), $get_query);
 // $after_assoc = mysqli_fetch_assoc($from_db);
 // print_r($after_assoc);
 ?>
@@ -36,7 +36,7 @@ $from_db = mysqli_query(db_connect(), $get_query);
                     </thead>
                     <tbody>
                         <?php
-                        foreach($from_db AS $user){
+                        foreach(get_all('users') AS $user){
                         ?>
                          <tr>
                             <td> <?=$user['id']?> </td>
